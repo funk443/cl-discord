@@ -1,0 +1,8 @@
+#+TITLE: cl-discord :: A Wrapper for Discord API in Common Lisp
+#+AUTHOR: CToID
+#+OPTIONS: num:nil toc:nil
+
+This library contains very shitty code because I only have
+intermediate Common Lisp knowledge, and I am still getting familiar
+with CLOS, packages and asdf stuffs.  What's even worse, I like to
+write Lisp code in *ALL CAPS*, so...
