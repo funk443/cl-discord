@@ -1,0 +1,34 @@
+(DEFPACKAGE :CL-DISCORD.BOT
+  (:NICKNAMES :CD.BOT)
+  (:USE :CL)
+  (:EXPORT :MAKE-BOT
+           :*CURRENT-BOT*
+           :TOKEN
+           :SEQ
+           :WS
+           :HEARTBEAT
+           :PRESENCE))
+(IN-PACKAGE :CD.BOT)
+
+(DEFVAR *CURRENT-BOT*)
+
+(DEFCLASS DISCORD-BOT ()
+  ((TOKEN
+    :INITARG :TOKEN
+    :INITFORM (ERROR "Must supply a token!")
+    :READER TOKEN)
+   (SEQ
+    :INITFORM 0
+    :ACCESSOR SEQ)
+   (WS
+    :ACCESSOR WS)
+   (HEARTBEAT
+    :ACCESSOR HEARTBEAT)
+   (PRESENCE
+    :INITARG :PRESENCE
+    :ACCESSOR PRESENCE)))
+
+(DEFUN MAKE-BOT (TOKEN &OPTIONAL (PRESENCE '("online" "Emacs" 0 :false)))
+  (DECLARE (TYPE STRING TOKEN))
+  (SETF *CURRENT-BOT* (MAKE-INSTANCE 'DISCORD-BOT :TOKEN TOKEN
+                                                  :PRESENCE PRESENCE)))
